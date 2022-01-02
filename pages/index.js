@@ -1,16 +1,29 @@
-import Head from 'next/head'
+import Link from 'next/link'
+import ProductCard from '../components/ProductCard'
+import { useRequest } from '../hooks/useRequest'
+import data from '../data/data.json'
 
 export default function Home() {
+  // const { data, error } = useRequest()
+
+  // if (error) <p>Error fetching data</p>
+  // if (!data) <p>Loading...</p>
+
   return (
     <>
-      <Head>
-        <title>Altiazon</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="container mx-auto">
-        <h1 className="text-2xl text-center">Altiazon coming soon...</h1>
-      </main>
+      <section className="grid md:grid-cols-4 grid-cols-1 gap-6">
+        {data?.map((product) => (
+          <Link
+            key={product.id}
+            href={`/product/${product.id}`}
+            as={`/product/${product.id}`}
+          >
+            <a>
+              <ProductCard product={product} />
+            </a>
+          </Link>
+        ))}
+      </section>
     </>
   )
 }
