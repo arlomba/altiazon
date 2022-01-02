@@ -4,13 +4,17 @@ import { useState } from 'react'
 
 export default function Navbar({ products }) {
   const [filteredProducts, setFilteredProducts] = useState([])
+  const [previewProducts, setPreviewProducts] = useState(true)
   const searchProducts = (value) => {
     const dataFiltered = products.filter((p) =>
       p.title.toLowerCase().includes(value.toLowerCase())
     )
 
+    setPreviewProducts(true)
     value !== '' ? setFilteredProducts(dataFiltered) : setFilteredProducts([])
   }
+
+  const handlePreview = () => setPreviewProducts(!previewProducts)
 
   return (
     <header className="shadow">
@@ -30,6 +34,7 @@ export default function Navbar({ products }) {
               type="text"
               placeholder="Search for products..."
               onChange={(e) => searchProducts(e.target.value)}
+              onClick={() => handlePreview()}
             />
 
             <div className="absolute top-0 bottom-0 right-0 flex items-center pr-2">
@@ -43,13 +48,14 @@ export default function Navbar({ products }) {
             </div>
           </div>
 
-          {filteredProducts.length !== 0 && (
+          {previewProducts && filteredProducts.length !== 0 && (
             <div className="absolute flex flex-col w-96 mt-1 bg-white border rounded shadow z-50">
               {filteredProducts.slice(0, 5).map((p, i) => (
                 <Link key={i} href={`/product/${p.id}`} as={`/product/${p.id}`}>
                   <a>
                     <div
                       className="flex items-center p-4 hover:bg-gray-100"
+                      onClick={() => handlePreview()}
                       title={p.title}
                     >
                       <div className="relative w-8 h-8">
