@@ -2,11 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export default function Navbar({ products }) {
+export default function Navbar({ data }) {
   const [filteredProducts, setFilteredProducts] = useState([])
   const [previewProducts, setPreviewProducts] = useState(true)
   const searchProducts = (value) => {
-    const dataFiltered = products.filter((p) =>
+    const dataFiltered = data.filter((p) =>
       p.title.toLowerCase().includes(value.toLowerCase())
     )
 
