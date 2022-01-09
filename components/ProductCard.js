@@ -16,9 +16,7 @@ export default function ProductCard({ product }) {
           <div className="relative w-48 h-48">
             <Image src={image} alt={title} layout="fill" objectFit="contain" />
           </div>
-          <p className="font-bold text-center text-sm overflow-hidden whitespace-nowrap inline-block text-ellipsis w-80 mt-2">
-            {title}
-          </p>
+          <p className="font-bold text-center text-sm mt-2">{title}</p>
         </figure>
       </header>
 

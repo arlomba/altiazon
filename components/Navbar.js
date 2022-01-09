@@ -30,7 +30,7 @@ export default function Navbar({ data }) {
         <div className="relative">
           <div className="">
             <input
-              className="p-2 border rounded w-96"
+              className="p-2 border rounded lg:w-96"
               type="text"
               placeholder="Search for products..."
               onChange={(e) => searchProducts(e.target.value)}
