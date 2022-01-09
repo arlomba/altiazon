@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import StarRating from '../../components/StarRating'
-import { useRequest } from '../../hooks/useRequest'
+import { useRequest } from '../../hooks/use-request'
 
 export default function ProductPage() {
   const { query } = useRouter()
