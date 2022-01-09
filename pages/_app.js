@@ -5,8 +5,8 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
   const { data, error } = useRequest()
 
-  if (error) <p>Error fetching data</p>
-  if (!data) <p>Loading...</p>
+  if (error) return <p>Error fetching data</p>
+  if (!data) return <p>Loading...</p>
 
   return (
     <Layout data={data}>
