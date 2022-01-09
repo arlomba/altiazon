@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
   } = product
 
   return (
-    <article className="flex flex-col justify-between items-center rounded shadow border hover:border-blue-500 h-full p-4">
+    <article className="flex flex-col justify-center items-center rounded shadow border p-4 h-80 hover:border-blue-500">
       <header className="w-full">
         <figure className="flex flex-col items-center justify-between">
           <div className="relative w-48 h-48">
